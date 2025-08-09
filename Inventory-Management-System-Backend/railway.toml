@@ -1,0 +1,12 @@
+[build]
+  builder = "nixpacks"
+  buildCommand = "npm install"
+  startCommand = "npm start"
+
+[deploy]
+  startCommand = "npm start"
+  healthcheckPath = "/"
+  healthcheckTimeout = 60
+  restartDelay = "5s"
+  restartPolicy = "on-failure"
+  restartMaxRetries = 3
