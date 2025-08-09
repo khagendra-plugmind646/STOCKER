@@ -1,5 +1,5 @@
 
-# Trackware- Inventory Management System.
+# Inventory Management System.
 
 To run it on Local System you can follow the below steps:-
 
