@@ -10,7 +10,29 @@
     }
   ],
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/Inventory-Management-System-frontend/index.html" }
+    {
+      "src": "/static/(.*)",
+      "dest": "/Inventory-Management-System-frontend/static/$1"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/Inventory-Management-System-frontend/manifest.json"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/Inventory-Management-System-frontend/favicon.ico"
+    },
+    {
+      "src": "/logo192.png",
+      "dest": "/Inventory-Management-System-frontend/logo192.png"
+    },
+    {
+      "src": "/logo512.png",
+      "dest": "/Inventory-Management-System-frontend/logo512.png"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/Inventory-Management-System-frontend/index.html"
+    }
   ]
 }
