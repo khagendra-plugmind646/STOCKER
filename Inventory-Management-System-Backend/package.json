@@ -5,13 +5,19 @@
   "main": "server.js",
   "type": "module",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
   },
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js",
+    "build": "npm install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build"
   },
+  "cacheDirectories": [
+    "node_modules"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
