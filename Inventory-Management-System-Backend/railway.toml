@@ -1,31 +1,7 @@
-# Railway configuration for Node.js application
 [build]
-  # Use Node.js 18
-  builder = "nixpacks"
-  buildCommand = "npm install"
-  installCommand = "npm install"
-  startCommand = "node server.js"
+builder = "nixpacks"
+buildCommand = "npm install"
+startCommand = "npm start"
 
 [deploy]
-  # Start command for the application
-  startCommand = "node server.js"
-  
-  # Health check configuration
-  healthcheckPath = "/"
-  healthcheckTimeout = 60
-  
-  # Restart policy
-  restartDelay = "5s"
-  restartPolicy = "on-failure"
-  restartMaxRetries = 3
-
-# Environment variables (these can also be set in Railway dashboard)
-[build.environment]
-  NODE_VERSION = "18.x"
-  NPM_CONFIG_PRODUCTION = "false"
-  NODE_ENV = "production"
-
-# Port configuration
-[deploy.ports]
-  port = 3000
-  http = { to = 3000 }
+startCommand = "npm start"
