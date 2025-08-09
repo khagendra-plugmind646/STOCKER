@@ -18,13 +18,6 @@ then, clone the entire project or you can first clone the frontend folder and th
 
 ## Run Locally
 
-Clone the project into a single File Directory.
-
-```bash
-  git clone https://github.com/ptripathi2002/Inventory-Management-System-frontend-
-```
-```bash
-  git clone https://github.com/ptripathi2002/Inventory-Management-System-Backend
 ```
 
 Go to the project directory
