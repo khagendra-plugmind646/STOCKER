@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Running Clock</title>
+  <style>
+    body {
+      margin: 0; height: 100vh; display: grid; place-items: center;
+      font-family: system-ui, Arial, sans-serif; background: #0f172a; color: #e5e7eb;
+    }
+    .clock {
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      letter-spacing: 0.05em;
+      padding: 0.5em 0.7em;
+      border-radius: 1rem;
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25), inset 0 0 20px rgba(255,255,255,0.04);
+    }
+    .date {
+      text-align: center; margin-top: 0.8rem; opacity: 0.8;
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div id="time" class="clock">--:--:--</div>
+    <div id="date" class="date"></div>
+  </main>
+
+  <script>
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function updateClock() {
+      const now = new Date();
+      // Set to true for 12-hour format; false for 24-hour
+      const use12Hour = false;
+
+      let hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+
+      let suffix = '';
+      if (use12Hour) {
+        suffix = hours >= 12 ? ' PM' : ' AM';
+        hours = hours % 12 || 12;
+      }
+
+      const timeStr = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}${suffix}`;
+      const dateStr = now.toLocaleDateString(undefined, {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+
+      document.getElementById('time').textContent = timeStr;
+      document.getElementById('date').textContent = dateStr;
+    }
+
+    updateClock();                 // initial paint
+    setInterval(updateClock, 1000); // update every second
+  </script>
+</body>
+</html>
